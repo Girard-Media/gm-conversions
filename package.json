@@ -1,0 +1,49 @@
+{
+  "name": "gm-conversions",
+  "version": "0.1.0",
+  "description": "Shared first-party attribution capture + OpenAI Ads pixel/Conversions API for Girard Media fleet apps. One implementation, so measurement can never silently drift between sites.",
+  "private": true,
+  "type": "module",
+  "exports": {
+    "./attribution": {
+      "types": "./dist/attribution.d.ts",
+      "default": "./dist/attribution.js"
+    },
+    "./openai-ads": {
+      "types": "./dist/openai-ads.d.ts",
+      "default": "./dist/openai-ads.js"
+    },
+    "./react": {
+      "types": "./dist/react.d.ts",
+      "default": "./dist/react.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "vitest run",
+    "check": "tsc -p tsconfig.json --noEmit && vitest run"
+  },
+  "peerDependencies": {
+    "next": ">=14",
+    "react": ">=18"
+  },
+  "peerDependenciesMeta": {
+    "next": {
+      "optional": true
+    },
+    "react": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "@types/react": "^19.0.0",
+    "next": "^15.0.0",
+    "react": "^19.0.0",
+    "typescript": "^5.6.0",
+    "vitest": "^4.0.0"
+  }
+}
