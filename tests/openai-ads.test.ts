@@ -7,7 +7,7 @@ import {
 } from '../src/openai-ads'
 
 const BASE_CONFIG: OpenAIAdsClientConfig = {
-  pixelId: 'BFfpWqTpw6hthNMxSU65ch',
+  pixelId: 'px_test_pixel_id',
   apiKey: 'test-key',
   integrationSource: 'test-app-web',
   canonicalOrigin: 'https://example-site.com',
@@ -47,7 +47,7 @@ describe('createOpenAIAdsClient', () => {
     expect(result).toEqual({ success: true })
 
     const [url, init] = fetchMock.mock.calls[0] as [string, RequestInit]
-    expect(url).toBe('https://bzr.openai.com/v1/events?pid=BFfpWqTpw6hthNMxSU65ch')
+    expect(url).toBe('https://bzr.openai.com/v1/events?pid=px_test_pixel_id')
     expect((init.headers as Record<string, string>).Authorization).toBe('Bearer test-key')
 
     const body = sentPayload()
